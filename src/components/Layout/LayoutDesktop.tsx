@@ -5,6 +5,7 @@ function LayoutDesktop({children} : {children: React.ReactNode}) {
   return (
     <div>
       Desktop
+      {children}
     </div>
   );
 }
