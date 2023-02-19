@@ -8,6 +8,10 @@
     "build": "webpack --mode production"
   },
   "dependencies": {
+    "@emotion/react": "^11.10.6",
+    "@emotion/styled": "^11.10.6",
+    "@mui/icons-material": "^5.11.9",
+    "@mui/material": "^5.11.9",
     "@types/jest": "^29.4.0",
     "@types/node": "^18.14.0",
     "@types/react": "^18.0.28",
