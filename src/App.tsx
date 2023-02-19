@@ -1,10 +1,11 @@
 import React from "react";
+import Layout from "./components/Layout/Layout";
 
 function App() {
     return (
-        <div>
-            <h1>Hello, world!</h1>
-        </div>
+        <Layout desktop={true}>
+            Hello world
+        </Layout>
     );
 }
 
