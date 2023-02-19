@@ -24,6 +24,12 @@ jobs:
       - name: Build
         run: yarn build
 
+      - name: List folders
+        run: |
+          for folder in */; do
+            echo "Contents of $folder:"
+            ls -al "$folder"
+          done
 
       - name: Deploy to Github Pages
         uses: peaceiris/actions-gh-pages@v3
