@@ -1,5 +1,5 @@
 import React from "react";
-import { Drawer, Grid, Typography } from "@mui/material";
+import { Box, Drawer, Grid, Typography } from "@mui/material";
 import RecentActorsIcon from '@mui/icons-material/RecentActors';
 import { Divider } from "@mui/material";
 
@@ -7,7 +7,7 @@ import { Divider } from "@mui/material";
 function LayoutDesktop({children} : {children: React.ReactNode}) {
   return (
     <Grid container direction="row" style={{width:'100%', height:'100%'}}>
-      <Grid item md={2} style={{background:'#bcb8b1', borderRight:'2px dotted #8a817c', borderLeft:'3px solid #8a817c', padding:'1.5em'}}>
+      <Grid item md={2} style={{background:'#bcb8b1', borderRight:'2px dotted #8a817c', borderLeft:'3px solid #8a817c', padding:'1.5em', display:'flex', width:'100%', height:'100%'}}>
         <Grid container direction="column" style={{width:'100%', height:'100%'}}>
           <Grid item md={2} style={{height:'100%'}}>
           </Grid>
@@ -26,8 +26,8 @@ function LayoutDesktop({children} : {children: React.ReactNode}) {
           </Grid>
         </Grid>
       </Grid>
-      <Grid item md={10} style={{background:'#463f3a', color:'#f4f3ee', padding:'1.5em'}}>
-        {children}
+      <Grid item md={10} style={{background:'#463f3a', color:'#f4f3ee', padding:'1.5em', overflow:'auto', display:'flex', width:'75%', height:'100%'}}>
+          {children}
       </Grid>
     </Grid>    
   );
