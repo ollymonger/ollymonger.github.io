@@ -26,8 +26,9 @@ export function BlogPostContainer({ blogPosts }: BlogPostContainerProps) {
   return (
     <Grid container direction="row" spacing={5} ref={containerRef}>
       {blogPosts.map((blogPost) => (
-          <Grid item xs={12} style={{ display: "flex", justifyContent: "center", paddingLeft:'-1em', paddingRight:'0.75em', paddingTop:'-2em', paddingBottom:'2em' }} key={blogPost.id}>
+          <Grid item xs={6} style={{ display: "flex", justifyContent: "center" }} key={blogPost.id}>
             <BlogPost id={blogPost.id} title={blogPost.title} body={blogPost.body} />
+          
           </Grid>
       ))}
     </Grid>

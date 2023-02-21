@@ -32,7 +32,7 @@ export const posts: BlogPostProps[] = [
   {
     id:6,
     title: "My first post",
-    body: "Hello world. This is my first post"
+    body: "Hello world. This is my first postello world. This is my first postello world. This is my first postello world. This is my first postello world. This is my first postello world. This is my first postello world. This is my first postello world. This is my first postello world. This is my first postello world. This is my first post"
   },
   {
     id:7,
