@@ -16,7 +16,12 @@ module.exports = {
         // test for .ts and .tsx
         test: /\.tsx?$/,
         loader: 'ts-loader'
-      },
+      }, 
+      {
+        // test for image files
+        test: /\.(png|jpe?g|gif)$/i,
+        type: 'asset/resource'
+      }
     ]
   },
   devServer: {
