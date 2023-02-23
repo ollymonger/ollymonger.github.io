@@ -1,6 +1,6 @@
 import React from "react";
 import { BlogPostContainer } from "./components/Blog/BlogContainer/BlogPostContainer";
-import HeliocentricDiagram from "./components/HeliocentricDiagram/HelioscopicDiagram";
+import HeliocentricDiagram from "./components/HeliocentricDiagram/HeliocentricDiagram";
 import Layout from "./components/Layout/Layout";
 
 import { posts } from "./data/posts";
