@@ -3,6 +3,7 @@ import { Brightness1, Image } from "@mui/icons-material";
 import { createStyles, Grid, Theme, Typography } from "@mui/material";
 import { makeStyles } from "@mui/styles";
 import React, { useEffect, useState } from "react";
+import { Planet } from "./planet/Planet";
 
 const useStyles = makeStyles((theme) => ({
   container: {
@@ -11,7 +12,7 @@ const useStyles = makeStyles((theme) => ({
     width: "100%",
     height: "100%",
     maxWidth: "100%",
-    maxHeight: "100%",
+    maxHeight: "65%",
   },
   sun: {
     position: "absolute",
@@ -26,7 +27,7 @@ const useStyles = makeStyles((theme) => ({
 const sun = { name: "Sun", color: "#ffeb3b", diameter: 65 };
 
 
-function HelioscopicDiagram  ({ planets }: { planets: { name: string; color: string; image?:string; distanceFromSun: number; diameter: number; orbitalPeriod: number }[]; }) {
+function HeliocentricDiagram({ planets }: { planets: Planet[]; }) {
   
   const classes = useStyles();
   const [time, setTime] = useState(0);
@@ -55,9 +56,9 @@ function HelioscopicDiagram  ({ planets }: { planets: { name: string; color: str
   }, [containerSize]);
 
   const positions = planets.map((planet) => {
-    const { distanceFromSun, orbitalPeriod } = planet;
-    const orbitalRadius = distanceFromSun * 24;
-    const angle = ((0.75 * Math.PI) / orbitalPeriod) * time;
+    const { distanceFromParent, orbitalPeriod } = planet;
+    const orbitalRadius = distanceFromParent * 24;
+    const angle = (Math.PI / orbitalPeriod) * time / 24;
     const x = Math.cos(angle) * orbitalRadius;
     const y = Math.sin(angle) * orbitalRadius;
     return { x, y };
@@ -67,21 +68,12 @@ function HelioscopicDiagram  ({ planets }: { planets: { name: string; color: str
     <div className={classes.container} id="helioscopic-diagram">
         <div className={classes.sun} style={{ backgroundColor: sun.color, width: sun.diameter, height: sun.diameter, left: sunPosition.x, top: sunPosition.y }} />
         {planets.map((planet, i) => {
-          const { name, color, diameter } = planet;
+          const { name } = planet;
           const { x, y } = positions[i];
-          return (
-            <div
-              key={name}
-              className={classes.planet}
-              style={{ background: color, position:'absolute', width: diameter, height: diameter, left: (sunPosition.x + 35) + x * Math.PI, top: (sunPosition.y + 35) - y * Math.PI }}
-            >
-              <img src={planet.image} alt={planet.name} style={{width:'100%', height:'100%'}}/>
-
-            </div>
-          );
+          return <Planet key={name} planet={{ ...planet }} position={{x, y}} sun={sunPosition} className={classes.planet} />;
         })}
     </div>
   );
 };
 
-export default HelioscopicDiagram;
+export default HeliocentricDiagram;
