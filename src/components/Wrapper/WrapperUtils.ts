@@ -42,4 +42,5 @@ const onTouchStart = ({ event, setPosition, position} : { event: React.TouchEven
   document.addEventListener('touchend', handleTouchEnd);
 };
 
+
 export { onWheel, onMouseDown, onTouchStart };
