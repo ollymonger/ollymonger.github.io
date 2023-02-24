@@ -1,12 +1,10 @@
 const onWheel = ({ event, setScale, scale} : { event: React.WheelEvent<HTMLDivElement>, setScale: (scale: number) => void, scale: number }) => {
-  event.preventDefault();
   const delta = event.deltaY;
   const newScale = scale - delta / 1000;
   setScale(newScale);
 };
 
 const onMouseDown = ({ event, setPosition, position} : { event: React.MouseEvent<HTMLDivElement>, setPosition: ({x, y}: { x: number, y: number }) => void, position: { x: number, y: number } }) => {
-  event.preventDefault();
   const startX = event.pageX - position.x;
   const startY = event.pageY - position.y;
 
@@ -26,7 +24,6 @@ const onMouseDown = ({ event, setPosition, position} : { event: React.MouseEvent
 };
 
 const onTouchStart = ({ event, setPosition, position} : { event: React.TouchEvent<HTMLDivElement>, setPosition: ({x, y}: { x: number, y: number }) => void, position: { x: number, y: number } })  => {
-  event.preventDefault();
   const startX = event.touches[0].pageX - position.x;
   const startY = event.touches[0].pageY - position.y;
 

@@ -10,10 +10,9 @@ export const WrapperControls = ({handleReset} : { handleReset: () => void } ) =>
       left:0,
       zIndex:1000
     }}>
-      <Button variant="contained" onClick={handleReset}>
-          
-          <ResetTv style={{fontSize:'4rem', paddingRight:'0.5em'}}/>
-        <Typography variant="h3" fontSize={"5rem"}>
+      <Button variant="contained" onClick={handleReset}>  
+        <ResetTv style={{fontSize:'2rem', paddingRight:'0.5em'}}/>
+        <Typography variant="h3" fontSize={"2rem"}>
           Reset
         </Typography>
       </Button>

@@ -10,8 +10,8 @@ interface WrapperProps {
 }
 
 const Wrapper: React.FC<WrapperProps> = ({ children }) => {
-  const [scale, setScale] = useState<number>(1.7);
-  const [position, setPosition] = useState<{ x: number; y: number }>({ x: -2815.39, y: -709 });
+  const [scale, setScale] = useState<number>(0.8);
+  const [position, setPosition] = useState<{ x: number; y: number }>({ x: -98, y: 129 });
   const ref = useRef<HTMLDivElement>(null);
 
   const handleWheel = (event: React.WheelEvent<HTMLDivElement>) => {
