@@ -42,7 +42,7 @@ const Wrapper: React.FC<WrapperProps> = ({ children }) => {
       height:'100%',
       width:'100%'
     }}>
-      <WrapperControls handleReset={handleReset}/>      
+      <WrapperControls handleReset={handleReset} info={{scale, position}} />      
       <WrapperContainer scale={scale} position={position}>
         {children}
       </WrapperContainer>
