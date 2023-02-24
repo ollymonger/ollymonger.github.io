@@ -1,5 +1,5 @@
 import { makeStyles } from "@mui/styles";
-import React, { useCallback, useEffect, useState } from "react";
+import React, { useState } from "react";
 import Wrapper from "../Wrapper/Wrapper";
 import { Planet } from "./planet/Planet";
 import { useAnimation } from "./useAnimation";

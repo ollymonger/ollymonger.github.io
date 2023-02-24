@@ -1,10 +1,6 @@
 import React from "react";
-import { BlogPostContainer } from "./components/Blog/BlogContainer/BlogPostContainer";
 import HeliocentricDiagram from "./components/HeliocentricDiagram/HeliocentricDiagram";
 import Layout from "./components/Layout/Layout";
-import Wrapper from "./components/Wrapper/Wrapper";
-
-import { posts } from "./data/posts";
 
 function App() {
     const planets = [
