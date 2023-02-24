@@ -6,11 +6,13 @@ import React, { useCallback, useEffect, useState } from "react";
 import { make3dTransformValue } from "react-quick-pinch-zoom";
 import PinchZoom from "react-quick-pinch-zoom/esm/PinchZoom/component";
 import { TransformComponent, TransformWrapper } from "react-zoom-pan-pinch";
+import Wrapper from "../Wrapper/Wrapper";
 import { Planet } from "./planet/Planet";
 
 const useStyles = makeStyles((theme) => ({
   container: {
     position: "relative",
+    overflow:'hidden',
     display:'flex',
     width: "100%",
     height: "100%",
@@ -68,31 +70,18 @@ function HeliocentricDiagram({ planets }: { planets: Planet[]; }) {
   });
 
   const containerRef = React.useRef<HTMLDivElement>(null);
-  
-  const onUpdate = useCallback(({ x, y, scale } : { x: number, y: number, scale: number}) => {
-    const { current: container } = containerRef;
-
-    if (container) {
-      const value = make3dTransformValue({ x, y, scale });
-
-      container.style.setProperty("transform", value);
-    }
-  }, []);
-
 
   return (
-    <div className={classes.container} id="helioscopic-diagram" ref={containerRef}>
-      <PinchZoom onUpdate={onUpdate} >
-      <>
-        <div className={classes.sun} style={{ backgroundColor: sun.color, width: sun.diameter, height: sun.diameter, left: sunPosition.x, top: sunPosition.y }} />
-        {planets.map((planet, i) => {
-          const { name } = planet;
-          const { x, y } = positions[i];
-          return <Planet key={name} planet={{ ...planet }} position={{x, y}} sun={sunPosition} className={classes.planet} />;
-        })}
-      </>
-      </PinchZoom>
-    </div>
+      <div className={classes.container} id="helioscopic-diagram" ref={containerRef}>
+          <Wrapper>
+          <div className={classes.sun} style={{ backgroundColor: sun.color, width: sun.diameter, height: sun.diameter, left: sunPosition.x, top: sunPosition.y }} />
+          {planets.map((planet, i) => {
+            const { name } = planet;
+            const { x, y } = positions[i];
+            return <Planet key={name} planet={{ ...planet }} position={{x, y}} sun={sunPosition} className={classes.planet} />;
+          })}
+          </Wrapper>
+      </div>
   );
 };
 

@@ -11,9 +11,7 @@ const Layout = ({ children, desktop }: LayoutProps) => {
   return (
     <Grid container direction="row" columns={4} style={{background:'black', display:'flex', width:'100%', height:'100%'}}>
       <Grid item xs={4} lg={4}>
-        <div style={{display:'flex', width:'100%', height:'100%', overflow:'hidden'}}>
           {children}
-        </div>
       </Grid>
     </Grid>
   )
