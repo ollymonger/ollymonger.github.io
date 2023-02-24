@@ -25,7 +25,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const sun = { name: "Sun", color: "#ffeb3b", diameter: 65 };
+const sun = { name: "Sun", color: "#ffeb3b", diameter: 65, image:"/sun.png" };
 
 
 function HeliocentricDiagram({ planets }: { planets: Planet[]; }) {  
@@ -57,7 +57,9 @@ function HeliocentricDiagram({ planets }: { planets: Planet[]; }) {
   return (
       <div className={classes.container} id="helioscopic-diagram" ref={containerRef}>
         <Wrapper>
-          <div className={classes.sun} style={{ backgroundColor: sun.color, width: sun.diameter, height: sun.diameter, left: sunPosition.x, top: sunPosition.y }} />
+          <div className={classes.sun} style={{ backgroundColor: "none", width: sun.diameter, height: sun.diameter, left: sunPosition.x, top: sunPosition.y }}>
+            <img src={sun.image} alt={sun.name} style={{ width: sun.diameter * 2, height: sun.diameter * 2 }} />
+          </div>
           {planets.map((planet, i) => {
             const { name } = planet;
             const { x, y } = positions(planets)[i];
