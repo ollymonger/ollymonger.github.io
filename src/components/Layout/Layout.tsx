@@ -10,16 +10,11 @@ type LayoutProps = {
 const Layout = ({ children, desktop }: LayoutProps) => {
   return (
     <Grid container direction="row" columns={4} style={{background:'black', display:'flex', width:'100%', height:'100%'}}>
-      <Grid item xs={0} lg={0}></Grid>
       <Grid item xs={4} lg={4}>
         <div style={{display:'flex', width:'100%', height:'100%', overflow:'hidden'}}>
-          <Grid container direction="column" columns={4}>
-            <Grid item xs={1}><Header/></Grid>
-            <Grid item xs={3}>{children}</Grid>
-          </Grid>
+          {children}
         </div>
       </Grid>
-      <Grid item xs={0} lg={0}></Grid>
     </Grid>
   )
 }

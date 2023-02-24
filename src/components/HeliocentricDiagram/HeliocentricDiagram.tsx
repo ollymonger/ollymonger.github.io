@@ -2,7 +2,10 @@
 import { Brightness1, Image } from "@mui/icons-material";
 import { createStyles, Grid, Theme, Typography } from "@mui/material";
 import { makeStyles } from "@mui/styles";
-import React, { useEffect, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
+import { make3dTransformValue } from "react-quick-pinch-zoom";
+import PinchZoom from "react-quick-pinch-zoom/esm/PinchZoom/component";
+import { TransformComponent, TransformWrapper } from "react-zoom-pan-pinch";
 import { Planet } from "./planet/Planet";
 
 const useStyles = makeStyles((theme) => ({
@@ -12,7 +15,7 @@ const useStyles = makeStyles((theme) => ({
     width: "100%",
     height: "100%",
     maxWidth: "100%",
-    maxHeight: "65%",
+    maxHeight: "100%",
   },
   sun: {
     position: "absolute",
@@ -64,14 +67,31 @@ function HeliocentricDiagram({ planets }: { planets: Planet[]; }) {
     return { x, y };
   });
 
+  const containerRef = React.useRef<HTMLDivElement>(null);
+  
+  const onUpdate = useCallback(({ x, y, scale } : { x: number, y: number, scale: number}) => {
+    const { current: container } = containerRef;
+
+    if (container) {
+      const value = make3dTransformValue({ x, y, scale });
+
+      container.style.setProperty("transform", value);
+    }
+  }, []);
+
+
   return (
-    <div className={classes.container} id="helioscopic-diagram">
+    <div className={classes.container} id="helioscopic-diagram" ref={containerRef}>
+      <PinchZoom onUpdate={onUpdate} >
+      <>
         <div className={classes.sun} style={{ backgroundColor: sun.color, width: sun.diameter, height: sun.diameter, left: sunPosition.x, top: sunPosition.y }} />
         {planets.map((planet, i) => {
           const { name } = planet;
           const { x, y } = positions[i];
           return <Planet key={name} planet={{ ...planet }} position={{x, y}} sun={sunPosition} className={classes.planet} />;
         })}
+      </>
+      </PinchZoom>
     </div>
   );
 };
