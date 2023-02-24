@@ -73,14 +73,14 @@ function HeliocentricDiagram({ planets }: { planets: Planet[]; }) {
 
   return (
       <div className={classes.container} id="helioscopic-diagram" ref={containerRef}>
-          <Wrapper>
+        <Wrapper>
           <div className={classes.sun} style={{ backgroundColor: sun.color, width: sun.diameter, height: sun.diameter, left: sunPosition.x, top: sunPosition.y }} />
           {planets.map((planet, i) => {
             const { name } = planet;
             const { x, y } = positions[i];
             return <Planet key={name} planet={{ ...planet }} position={{x, y}} sun={sunPosition} className={classes.planet} />;
           })}
-          </Wrapper>
+        </Wrapper>
       </div>
   );
 };
