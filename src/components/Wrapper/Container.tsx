@@ -1,6 +1,6 @@
 import React from "react";
 
-export const WrapperContainer = ({ scale, position, children } : { scale: number; position: { x: number; y: number }, children: React.ReactNode }) => {
+export const Container = ({ scale, position, children } : { scale: number; position: { x: number; y: number }, children: React.ReactNode }) => {
   return (
     <div
       style={{
