@@ -7,7 +7,7 @@ import { onMouseDown, onTouchStart, onWheel } from './utils';
 type ZoomableContainerProps= {
   children: React.ReactNode;
   /**
-  * A React element that will be rendered as the custom controls for the `Wrapper`.
+  * A React element that will be rendered as the custom controls for the `ZoomableContainer`.
   */
   customControls?: ReactElement<any, any> | null;
 }
