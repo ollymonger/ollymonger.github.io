@@ -2,7 +2,7 @@ import { Button, Typography } from "@mui/material";
 import { makeStyles } from "@mui/styles";
 import React, { useState } from "react";
 import { useZoomableContext } from "../Wrapper/Context";
-import { ZoomableContainer } from "../Wrapper/ZoomableContainer";
+import { ZoomableContainer } from "react-zoomable-container";
 import { Planet } from "./planet/Planet";
 import { useAnimation } from "./useAnimation";
 import { useResize } from "./useResize";
@@ -82,7 +82,16 @@ function HeliocentricDiagram({ planets }: { planets: Planet[]; }) {
 
   return (
       <div className={classes.container} id="helioscopic-diagram" ref={containerRef}>
-        <ZoomableContainer>
+        <ZoomableContainer controlOverrides={
+          {
+            scale: 1,
+            position: { x: 0, y: 0 },
+            lerpTime: 200,
+            scaleStep: 0.1,
+            maxScale: 2,
+            minScale: 0,
+          }
+        }>
           <div className={classes.sun} style={{ backgroundColor: "none", width: sun.diameter, height: sun.diameter, left: sunPosition.x, top: sunPosition.y }}>
             <img src={sun.image} alt={sun.name} style={{ width: sun.diameter * 2, height: sun.diameter * 2 }} />
           </div>
