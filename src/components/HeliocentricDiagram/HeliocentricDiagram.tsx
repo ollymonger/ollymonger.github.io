@@ -87,7 +87,7 @@ function HeliocentricDiagram({ planets }: { planets: Planet[]; }) {
             scale: 1,
             position: { x: 0, y: 0 },
             lerpTime: 200,
-            scaleStep: 0.1,
+            scaleStep: 0.5,
             maxScale: 2,
             minScale: 0,
           }
