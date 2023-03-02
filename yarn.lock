@@ -2401,11 +2401,6 @@ react-transition-group@^4.4.5:
     loose-envify "^1.4.0"
     prop-types "^15.6.2"
 
-react-zoomable-container@^1.2.7:
-  version "1.2.7"
-  resolved "https://registry.yarnpkg.com/react-zoomable-container/-/react-zoomable-container-1.2.7.tgz#e24ee689a000482557d6af65e9a4945f71f20a19"
-  integrity sha512-ByYX5RU9qSkuoMfUx4Rb+/31DicnhFtPn1zVpESSMHGXYsMazp4P/mketl8ikyHQdG6eO8S5D3mdGB9x3Jcvfw==
-
 react@^18.2.0:
   version "18.2.0"
   resolved "https://registry.npmjs.org/react/-/react-18.2.0.tgz"
